@@ -1,3 +1,4 @@
+from fasta_reader import read_fasta
 
 class Alignment:
     def global_alignment(self, seq1, seq2):
@@ -81,8 +82,8 @@ class Alignment:
 
 if __name__ == "__main__":
     aligner = Alignment()
-    seq1 = "AGTC"
-    seq2 = "AGTC"
+    seq1 = read_fasta("data/human_HBB.fasta")
+    seq2 = read_fasta("data/mouse_HBB_bt.fasta")
     score, algn1, algn2 = aligner.global_alignment(seq1,seq2)
     
     print("Score: ", score)
