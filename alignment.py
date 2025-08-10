@@ -29,17 +29,17 @@ class Alignment:
         for i in range(1, n):
             for j in range(1, m):
                 match = score_matrix[i - 1][j - 1] + (match_score if seq2[i - 1] == seq1[j - 1] else mismatch_penalty)
-                delete = score_matrix[i - 1][j] + gap_penalty
-                insert = score_matrix[i][j - 1] + gap_penalty
-                maximum = max(match, delete, insert)
+                indent1 = score_matrix[i - 1][j] + gap_penalty
+                indent2 = score_matrix[i][j - 1] + gap_penalty
+                maximum = max(match, indent1, indent2)
                 score_matrix[i][j] = maximum
 
                 if maximum==match:
                     path[i][j] = "D"
-                elif maximum==delete:
-                    path[i][j] = "U"
-                else:
+                elif maximum==indent2:
                     path[i][j] = "L"
+                else:
+                    path[i][j] = "U"
         
         # Trace back result
         algn1 = ""
