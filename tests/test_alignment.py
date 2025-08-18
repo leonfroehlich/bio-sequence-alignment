@@ -1,10 +1,10 @@
 import os
 import csv
 import pytest
-from alignment import Alignment
+from alignment import SequenceAligner
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "global_alignment_test_cases.csv")
-aligner = Alignment()
+aligner = SequenceAligner()
 
 def load_cases():
     with open(DATA_PATH, newline="") as f:
