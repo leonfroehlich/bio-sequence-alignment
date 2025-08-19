@@ -6,7 +6,7 @@ def read_fasta(filename):
     seq = seq.replace(" ", "").replace("\t", "")
     return seq.upper()
 
-def matrix_print(self, matrix):
+def matrix_print(matrix):
     for i in range(len(matrix)):
         print(matrix[i])
 
