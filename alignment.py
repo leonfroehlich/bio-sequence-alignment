@@ -60,7 +60,7 @@ class SequenceAligner:
                 algn2 = "_" + algn2
                 j -= 1
 
-        return Alignment(algn1, algn2, score_matrix[n-1][j-1])
+        return Alignment(algn1, algn2, 0, len(seq1), 0, len(seq2), score_matrix[n-1][j-1])
     
     def local_alignment(self, seq1, seq2, match_score=1, mismatch_penalty=-1, gap_penalty=-1):
         """
@@ -69,6 +69,9 @@ class SequenceAligner:
         :param seq2: Second sequence (string).
         :return: Alignment score and aligned sequences as a triple (score, aligned_seq1, aligned_seq2).
         """
+
+        if (seq1 == "" or seq2 == ""):
+            return [Alignment("", "", 0, 0, 0, 0, 0)]
 
         # Initialize the scoring matrix
         n = len(seq2) + 1
@@ -136,7 +139,7 @@ class SequenceAligner:
                     algn2 = "_" + algn2
                     j -= 1
             
-            result.append(Alignment(algn1, algn2, max_start_score))
+            result.append(Alignment(algn1, algn2, j, point[1], i, point[0], max_start_score))
 
         return result
         
@@ -146,10 +149,10 @@ if __name__ == "__main__":
     aligner = SequenceAligner()
     # seq1 = read_fasta("data/human_HBB.fasta")
     # seq2 = read_fasta("data/mouse_HBB_bt.fasta")
-    seq1 = "ATCGATCG"
-    seq2 = "ATCG"
+    seq1 = "A"
+    seq2 = ""
     alignments = aligner.local_alignment(seq1,seq2)
 
     for alignment in alignments:
         print("Score:", alignment.score)
-        alignment.compare("Human", "Mouse")
+        alignment.local_compare("Seq1 ", "Seq2")

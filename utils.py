@@ -11,9 +11,13 @@ def matrix_print(matrix):
         print(matrix[i])
 
 class Alignment:
-    def __init__(self, aligned_seq1: str, aligned_seq2: str, score: int):
+    def __init__(self, aligned_seq1: str, aligned_seq2: str, start1: int, end1: int, start2: int, end2: int, score: int):
         self.aligned_seq1 = aligned_seq1
         self.aligned_seq2 = aligned_seq2
+        self.start1 = start1
+        self.end1 = end1
+        self.start2 = start2
+        self.end2 = end2
         self.score = score
 
     def compare(self, name1, name2):
@@ -23,3 +27,7 @@ class Alignment:
             print(name2, self.aligned_seq2[i:i+100])
             print()
             i+=100
+
+    def local_compare(self, name1, name2):
+        print(f"{name1}[{self.start1}:{self.end1}]: {self.aligned_seq1}")
+        print(f"{name2}[{self.start2}:{self.end2}]: {self.aligned_seq2}")
