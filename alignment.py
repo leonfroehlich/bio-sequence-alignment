@@ -146,16 +146,3 @@ class SequenceAligner:
 
         return result
         
-
-
-if __name__ == "__main__":
-    aligner = SequenceAligner()
-    # seq1 = read_fasta("data/human_HBB.fasta")
-    # seq2 = read_fasta("data/mouse_HBB_bt.fasta")
-    seq1 = "A"
-    seq2 = ""
-    alignments = aligner.local_alignment(seq1,seq2)
-
-    for alignment in alignments:
-        print("Score:", alignment.score)
-        alignment.local_compare("Seq1 ", "Seq2")
