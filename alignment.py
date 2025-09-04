@@ -114,6 +114,9 @@ class SequenceAligner:
                 elif (score_matrix[i][j] == max_start_score):
                     start_points.append((i,j))
 
+        if (max_start_score == 0):
+            return [Alignment("","",0,0,0,0,0)]
+
         # next step is to trace back from all start points, inclusive taking all branches
         # alternatively you can also define a priority, what lane to chose, ie always indent seq2
         

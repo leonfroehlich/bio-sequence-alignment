@@ -6,3 +6,11 @@ id,seq1,seq2,start1,end1,start2,end2,score
 5,ACTT,AGTT,2,4,2,4,2
 6,ACT,AGT,"0,2","1,3","0,2","1,3",1
 7,TTCCGGTT,TT,"0,6","2,8","0,0","2,2",2
+8,ACACACTA,AGCACACA,"1,0,1","6,5,8","2,3,2","7,8,8",5
+9,AAAA,TTTT,0,0,0,0,0
+10,GATTACA,GCATGCU,"5,1","7,3","1,2","3,4",2
+11,GGTTGACTA,TGTTACGG,1,7,1,6,4
+12,GCGC,CGCG,"1,0","4,3","0,1","3,4",3
+13,AAAAA,AAA,"0,1,2","3,4,5","0,0,0","3,3,3",3
+14,ATATAT,TATATA,"1,0","6,5","0,1","5,6",5
+15,ACTTTCCTTT,TTTTTTTT,"2,2,2","10,10,10","0,0,0","6,7,8",4
